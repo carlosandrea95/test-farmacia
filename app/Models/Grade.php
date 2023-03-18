@@ -25,7 +25,11 @@ class Grade extends Model
             $courseGrade['id'] = $grade->id;
             $courseGrade['studentId'] = $grade->studentId;
             $courseGrade['courseId'] = $grade->courseId;
-            $courseGrade['course'] = $course->name;
+            if (!empty($course->stage)) {
+                $courseGrade['course'] = $course->name . ' ' . $course->stage;
+            } else {
+                $courseGrade['course'] = $course->name;
+            }
             $courseGrade['score'] = $grade->score;
             $grades[] = $courseGrade;
         }
