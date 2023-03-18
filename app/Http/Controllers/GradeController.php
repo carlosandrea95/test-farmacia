@@ -17,7 +17,7 @@ class GradeController extends Controller
             'response' => [
                 'code' => 200,
                 'status' => 'success',
-                'desc' => 'Show all Grades'
+                'desc' => 'Show all grades'
             ],
             'data' => [
                 'grades' => Grade::all()
@@ -61,6 +61,17 @@ class GradeController extends Controller
     public function show(Grade $grade)
     {
         // Show an Grade
+        $data = [
+            'response' => [
+                'code' => 200,
+                'status' => 'success',
+                'desc' => 'Show an specified grade'
+            ],
+            'data' => [
+                'grades' => $grade
+            ]
+        ];
+        return response()->json($data, 200);
     }
 
     /**
