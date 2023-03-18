@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer('score')->unsigned();
 
             // record management
+            $table->boolean('deleted')->default('0');
             $table->timestamps();
         });
     }
